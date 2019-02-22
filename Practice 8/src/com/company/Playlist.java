@@ -1,6 +1,7 @@
 package com.company;
 
-public class Playlist {
+
+ class Playlist {
 
     Node head;
 
@@ -16,7 +17,7 @@ public class Playlist {
     }
 
 
-    public void addSong(String n, String a)
+    void addSong(String n, String a)
     {
         Node newNode = new Node(n,a);
         Node last = head;
@@ -38,22 +39,29 @@ public class Playlist {
         newNode.previous = last;
     }
 
-    public void playNext()
+    void playNow(Node node)
     {
-
+        head=node;
     }
 
-    public void playPrevious(){
-
+    void playNext(Node node)
+    {
+        node=node.next;
+        head=node;
     }
 
-    public void printPlaylist(Node node)
+    void playPrevious(Node node){
+        node=node.previous;
+        head=node;
+    }
+
+
+    void printPlaylist(Node node)
     {
-        Node last = null;
-        System.out.println("Playlist: \n");
+
+        System.out.println("Playlist: ");
         while (node != null) {
-            System.out.print(node.song + " ");
-            last = node;
+            System.out.print(node.song.name +" -"+node.song.artist+ "\n");
             node = node.next;
         }
 
