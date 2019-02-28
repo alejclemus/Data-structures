@@ -4,12 +4,12 @@ public class Company {
     Node head;
 
     class Node {
-        Workers worker;
+        Worker worker;
         Node next;
 
         Node(int s, String n)
         {
-            worker=new Workers(s,n);
+            worker=new Worker(s,n);
         }
     }
 
