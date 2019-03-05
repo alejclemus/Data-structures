@@ -1,11 +1,12 @@
 package com.company;
 
  class Worker {
-  int socialSecurityNumber;
+  int socialSecurityNumber, daysWorked;
   String name;
 
-  Worker(int s, String n){
+  Worker(int s, int d, String n){
       socialSecurityNumber=s;
+      daysWorked=d;
       name=n;
   }
 }

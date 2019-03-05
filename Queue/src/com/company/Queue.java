@@ -29,6 +29,9 @@ class Queue {
 
     void delete(int capacity)
     {
-        array=new Worker[]{};
+        for (int i=0; i<array.length;i++){
+            System.out.print("Name: "+array[i].name+" Social security number: "+array[i].socialSecurityNumber+" Total days worked"+array[i].daysWorked);
+        }
+
     }
 }
