@@ -20,7 +20,7 @@ public class ExpressionTree {
     }
 
     boolean isParenthesis(char c){
-        if(c== '(' || c== ')'){
+        if(c== '('){
             return true;
         }
         return false;
@@ -40,60 +40,26 @@ public class ExpressionTree {
         Stack nodeStack = new Stack();
         Node t, t1, t2;
 
-
         for (int i = 0; i < Expression.length; i++) {
 
-            for(int j=0; j<Expression.length;j++){
-                if (isParenthesis(Expression[j]))
-                {
-                    int cont = 0;
-                    while (cont != 1)
-                    {
-                        j++;
-                        char c=Expression[j];
-                        String expressionS=String.valueOf(c);
-                        if(expressionS !=")" )
-                        {
-                            if (isNumber(Expression[j++])) {
-                                t = new Node(Expression[i]);
-                                nodeStack.push(t);
-                            } else if (isOperator(Expression[j++])) {
-                                t = new Node(Expression[i]);
-                                System.out.println(t.value);
-                                System.out.println("/" + "\\");
-                                t1 = nodeStack.pop();
-                                t2 = nodeStack.pop();
-                                t.left = t1;
-                                System.out.print(t.left.value + " ");
-                                t.right = t2;
-                                System.out.print(t.right.value);
-                                nodeStack.push(t);
-                            }
-                        }
-                        else {
-                            cont++;
-                        }
-                    }
-                }
-                }
-
-             if (isNumber(Expression[i])) {
+             if (isNumber(Expression[i]) || isVariable(Expression[i])) {
                     t = new Node(Expression[i]);
                     nodeStack.push(t);
                 }
             else if (isOperator(Expression[i])){
                 t = new Node(Expression[i]);
-                    //System.out.println(t.value);
-                    //System.out.println("/"+"\\");
+                System.out.println(t.value);
+                System.out.println("/"+"\\");
                 t1 = nodeStack.pop();
                 t2 = nodeStack.pop();
                 t.left = t1;
-                    //System.out.print(t.left.value+" ");
+                System.out.print(t.left.value+" ");
                 t.right = t2;
-                    //System.out.print(t.right.value);
+                System.out.print(t.right.value);
                 nodeStack.push(t);
             }
         }
+
         t = nodeStack.peek();
         nodeStack.pop();
 
