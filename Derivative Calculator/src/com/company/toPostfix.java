@@ -11,7 +11,7 @@ public class toPostfix {
         return false;
     }
 
-    private boolean checkPrecedence(char c1, char c2){
+     boolean checkPrecedence(char c1, char c2){
         if((c2 == '+' || c2 == '-') && (c1 == '+' || c1 == '-'))
             return true;
         else if((c2 == '*' || c2 == '/') && (c1 == '+' || c1 == '-' || c1 == '*' || c1 == '/'))
@@ -22,7 +22,7 @@ public class toPostfix {
             return false;
     }
 
-    public String convert(String infix){
+     String convert(String infix){
         System.out.printf("%-8s%-10s%-15s\n", "Input","Stack","Postfix");
         String postfix = "";
         Stack s = new Stack();

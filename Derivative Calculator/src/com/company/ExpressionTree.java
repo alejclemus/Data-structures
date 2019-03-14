@@ -19,12 +19,6 @@ public class ExpressionTree {
         return (Character.isLetter(c));
     }
 
-    boolean isParenthesis(char c){
-        if(c== '('){
-            return true;
-        }
-        return false;
-    }
 
     void inorder(Node t) {
         if (t != null) {
@@ -33,8 +27,6 @@ public class ExpressionTree {
             inorder(t.right);
         }
     }
-
-
 
     Node constructTree(char Expression[]) {
         Stack nodeStack = new Stack();
@@ -59,7 +51,6 @@ public class ExpressionTree {
                 nodeStack.push(t);
             }
         }
-
         t = nodeStack.peek();
         nodeStack.pop();
 

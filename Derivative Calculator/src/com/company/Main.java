@@ -9,7 +9,5 @@ public class Main {
 	String convertedExpression=postfix.convert(expression);
 	char[] expressionarray=convertedExpression.toCharArray();
 	Node root=et.constructTree(expressionarray);
-	//System.out.println("infix expression is");
-	//et.inorder(root);
     }
 }
