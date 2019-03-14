@@ -11,6 +11,10 @@ public class ExpressionTree {
         return false;
     }
 
+    boolean isVariable(char c){
+        return (Character.isLetter(c));
+    }
+
     void inorder(Node t) {
         if (t != null) {
             inorder(t.left);
@@ -26,15 +30,25 @@ public class ExpressionTree {
         for (int i = 0; i < Expression.length; i++) {
 
             if (!isOperator(Expression[i])) {
+                if (!isVariable(Expression[i]))
+                {
+                    t = new Node(Expression[i]);
+                    nodeStack.push(t);
+                }
+
+            }
+            else{
                 t = new Node(Expression[i]);
-                nodeStack.push(t);
-            } else
-            {
-                t = new Node(Expression[i]);
-                t1 = nodeStack.pop();
-                t2 = nodeStack.pop();
-                t.right = t1;
-                t.left = t2;
+                if(!isVariable(Expression[i]))
+                {
+                    t1 = nodeStack.pop();
+                    t2 = nodeStack.pop();
+                    t.right = t1;
+                    t.left = t2;
+                }
+                else {
+                    
+                }
 
                 nodeStack.push(t);
             }
