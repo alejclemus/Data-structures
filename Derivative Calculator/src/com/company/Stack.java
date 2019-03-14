@@ -1,7 +1,7 @@
 package com.company;
 
 public class Stack {
-        static final int size = 100;
+        static final int size = 1000;
         int top;
         Node[] a = new Node[size];
 
@@ -20,7 +20,6 @@ public class Stack {
             else
             {
                 a[++top] = x;
-                System.out.println(x + " pushed into stack");
                 return true;
             }
         }

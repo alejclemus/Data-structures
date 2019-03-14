@@ -40,14 +40,10 @@ public class ExpressionTree {
                 }
             else if (isOperator(Expression[i])){
                 t = new Node(Expression[i]);
-                System.out.println(t.value);
-                System.out.println("/"+"\\");
                 t1 = nodeStack.pop();
                 t2 = nodeStack.pop();
-                t.left = t1;
-                System.out.print(t.left.value+" ");
-                t.right = t2;
-                System.out.print(t.right.value);
+                t.right = t1;
+                 t.left = t2;
                 nodeStack.push(t);
             }
         }
