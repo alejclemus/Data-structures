@@ -34,6 +34,8 @@ public class ExpressionTree {
         }
     }
 
+
+
     Node constructTree(char Expression[]) {
         Stack nodeStack = new Stack();
         Node t, t1, t2;
@@ -42,10 +44,37 @@ public class ExpressionTree {
         for (int i = 0; i < Expression.length; i++) {
 
             for(int j=0; j<Expression.length;j++){
-                if (isParenthesis(Expression[j])){
-
-
+                if (isParenthesis(Expression[j]))
+                {
+                    int cont = 0;
+                    while (cont != 1)
+                    {
+                        j++;
+                        char c=Expression[j];
+                        String expressionS=String.valueOf(c);
+                        if(expressionS !=")" )
+                        {
+                            if (isNumber(Expression[j++])) {
+                                t = new Node(Expression[i]);
+                                nodeStack.push(t);
+                            } else if (isOperator(Expression[j++])) {
+                                t = new Node(Expression[i]);
+                                System.out.println(t.value);
+                                System.out.println("/" + "\\");
+                                t1 = nodeStack.pop();
+                                t2 = nodeStack.pop();
+                                t.left = t1;
+                                System.out.print(t.left.value + " ");
+                                t.right = t2;
+                                System.out.print(t.right.value);
+                                nodeStack.push(t);
+                            }
+                        }
+                        else {
+                            cont++;
+                        }
                     }
+                }
                 }
 
              if (isNumber(Expression[i])) {
@@ -63,13 +92,6 @@ public class ExpressionTree {
                 t.right = t2;
                     //System.out.print(t.right.value);
                 nodeStack.push(t);
-            }
-            else if(isParenthesis(Expression[i])){
-
-            }
-            else //if (isVariable)
-            {
-                i++;
             }
         }
         t = nodeStack.peek();
