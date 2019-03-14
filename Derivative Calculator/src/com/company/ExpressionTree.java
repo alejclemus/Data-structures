@@ -51,6 +51,7 @@ public class ExpressionTree {
                 nodeStack.push(t);
             }
         }
+
         t = nodeStack.peek();
         nodeStack.pop();
 
